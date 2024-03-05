@@ -1,0 +1,20 @@
+def find_pairs_with_sum(nums, target):
+    pairs = []
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                pairs.append((nums[i], nums[j]))
+    return pairs
+
+# Initialize the list and its values
+nums = [5, 2, 3,1, 4, 3, 6, 7]
+# Initialize value of sum
+target_sum = 6
+
+# Invoke the function to find pairs
+result_pairs = find_pairs_with_sum(nums, target_sum)
+
+# Print the pairs
+print("Pairs to which sum is :", target_sum)
+for pair in result_pairs:
+    print(pair[0], pair[1])
