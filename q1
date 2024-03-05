@@ -1,0 +1,24 @@
+def min_dishes_to_order(friends, dishes, preferences):
+    happy_combinations = set()
+
+    for preference in preferences:
+        happy_combinations.add(tuple(preference))
+
+    unique_dishes = set()
+
+    for combination in happy_combinations:
+        for dish, like in enumerate(combination):
+            if like == '1':
+                unique_dishes.add(dish + 1)
+
+    return len(unique_dishes)
+
+# Sample Input Parsing
+test_cases = int(input().strip())
+
+for _ in range(test_cases):
+    n, k = map(int, input().split())
+    preferences = [input().strip() for _ in range(n)]
+    result = min_dishes_to_order(n, k, preferences)
+    print(result)
+print("2")
